@@ -1,0 +1,23 @@
+ES2015 Arrow Functions
+
+const double = (arr) => { return arr.map((val) => val * 2); }
+
+
+
+function squareAndFindEvens(numbers) {
+    var squares = numbers.map(function(num) {
+        return num ** 2;
+    });
+    var evens = squares.filter(function(square) {
+        return square % 2 === 0;
+    });
+    return evens;
+}
+
+Refactor the following function to use arrow functions:
+
+const squareAndFindEvens = (numbers) => {
+    let squares = numbers.map((num) => num ** 2);
+    let evens = squares.filter((square) => square % 2 === 0)
+    return evens;
+}

@@ -1,0 +1,4 @@
+acknowledge shortcomings/bugs and maybe things not yet implemented
+detail oriented, little things matter in making user experience better
+remove unused lines of code
+practice presentation

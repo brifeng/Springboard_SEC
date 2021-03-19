@@ -1,0 +1,18 @@
+ES2015 Global Constants
+
+const PI = 3.14;
+PI = 42; // not allowed in ES2015
+
+Quiz
+1. What is the difference between var and let?
+let cannot be redeclared and is only valid within its block
+
+2. What is the difference between var and const?
+const cannot be redeclared nor reassigned and is also only valid within its block
+
+3. What is the difference between let and const?
+let can be reassigned, while const cannot
+
+4. What is hoisting?
+hoisting occurs when declaring vars, where the initialization code is effectively run at the top of the file, 
+but it is only defined later in the code where the line exists

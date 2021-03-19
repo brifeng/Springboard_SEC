@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies App</title>
+</head>
+
+<body>
+    <!-- <form id="submission" onsubmit="return false;"> -->
+    <form onsubmit="return false;">
+        <label for="title">Movie Name: </label><input type="text" id="title">
+        <br>
+        <label for="rating">Rating: &emsp;&emsp;&ensp;</label><input type="number" id="rating" min="0" max="10">
+        <br>
+        <button id="submitBtn">Submit</button>
+    </form>
+    <h2>Movies and Rating</h2>
+    <ul>
+
+    </ul>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script>
+        $('#submitBtn').on('click', function() {
+            if ($('#title').val() === '' || $('#rating').val() === '')
+                return;
+            else if ($('#title').val().length < 3) {
+                alert('Movie Title is too short!');
+                return;
+            } else if ($('#rating').val() > 10 || $('#rating').val() < 0) {
+                alert('Invalid Rating!')
+                return;
+            }
+
+            $(`<li>${$('#title').val()}&emsp;${$('#rating').val()}</li>`).append('<button>Remove</button>').appendTo($('ul'));
+
+            $('ul button').on('click', function() {
+                $(this).parent().remove();
+            })
+
+            $('#title').val('');
+            $('#rating').val('');
+        })
+    </script>
+</body>
+
+</html>
