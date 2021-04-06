@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mock 2</title>
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.css" integrity="sha512-3icgkoIO5qm2D4bGSUkPqeQ96LS8+ukJC7Eqhl1H5B2OJMEnFqLmNDxXVmtV/eq5M65tTDkUYS/Q0P4gvZv+yA==" crossorigin="anonymous" />
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">LOGO</a>
+
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Messages <span class="badge bg-success text-white">12</span></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row m-2 border-bottom">
+            <h1>Dashboard:</h1>
+            <table class="table table-striped mb-4">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Team</th>
+                        <th scope="col">All Star</th>
+                        <th scope="col">Remove</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Steph</td>
+                        <td>Warriors</td>
+                        <td>Yes</td>
+                        <td><button class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button></td>
+                    </tr>
+                    <tr>
+                        <td>Lebron</td>
+                        <td>Cavaliers</td>
+                        <td>Yes</td>
+                        <td><button class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button></td>
+                    </tr>
+                    <tr>
+                        <td>Dwayne</td>
+                        <td>Heat</td>
+                        <td>Yes</td>
+                        <td><button class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button></td>
+                    </tr>
+                    <tr>
+                        <td>Kobe</td>
+                        <td>Lakers</td>
+                        <td>Yes <span class="badge bg-warning">Last</span></td>
+                        <td><button class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button></td>
+                    </tr>
+                    <tr>
+                        <td>Isaiah</td>
+                        <td>Celtics</td>
+                        <td>Yes <span class="badge bg-success text-white">First</span></td>
+                        <td><button class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="row m-2 mb-4">
+            <h1>Todos:</h1>
+            <div class="col-12 mb-0 alert alert-success d-block">Feel good about Bootstrap</div>
+            <div class="col-12 mb-0 alert alert-info">Feel informed about Bootstrap</div>
+            <div class="col-12 mb-0 alert alert-warning">Feel warned about Bootstrap</div>
+            <div class="col-12 mb-0 alert alert-warning">Maybe I should read the docs...</div>
+            <div class="col-12 mb-0 alert alert-danger">Danger zone</div>
+            <div class="col-12 mb-0 alert alert-danger">I really should read the docs...</div>
+        </div>
+    </div>
+</body>
+
+</html>
