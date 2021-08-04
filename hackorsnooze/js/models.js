@@ -25,7 +25,7 @@ class Story {
 
   getHostName() {
     // UNIMPLEMENTED: complete this function!
-    return "hostname.com";
+    return new URL(this.url).origin;
   }
 }
 
@@ -75,17 +75,29 @@ class StoryList {
 
   async addStory(user, { title, author, url }) {
     // UNIMPLEMENTED: complete this function!
-    const token = user.loginToken;
     const response = await axios({
       method: "POST",
       url: `${BASE_URL}/stories`,
-      data: { token, story: { title, author, url } },
+      data: { token: user.loginToken, story: { title, author, url } },
     });
     const story = new Story(response.data.story);
     this.stories.unshift(story);
     user.ownStories.unshift(story);
 
     return story;
+  }
+
+  async removeStory(user, storyId) {
+    await axios({
+      url: `${BASE_URL}/stories/${storyId}`,
+      method: "DELETE",
+      data: { token: user.loginToken }
+    });
+
+    // filter out the story whose ID we are removing
+    this.stories = this.stories.filter(story => story.storyId !== storyId);
+    user.ownStories = user.ownStories.filter(s => s.storyId !== storyId);
+    user.favorites = user.favorites.filter(s => s.storyId !== storyId);
   }
 }
 

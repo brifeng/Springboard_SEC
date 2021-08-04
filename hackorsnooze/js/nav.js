@@ -53,3 +53,13 @@ function navFavoriteClick(evt) {
 }
 
 $body.on("click", "#nav-favorite", navFavoriteClick);
+
+
+function navOwnStories(evt) {
+  console.debug("navOwnStoriesClick", evt);
+  hidePageComponents();
+  putOwnStoriesOnPage();
+}
+
+$body.on("click", "#nav-own-stories", navOwnStories);
+
