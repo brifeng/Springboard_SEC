@@ -78,6 +78,7 @@ async function submitNewStory(evt) {
 
 $submitForm.on("submit", submitNewStory);
 
+// retrieve HTML for star to use in favorites
 function getStarHTML(story, user) {
   const isFavorite = user.isFavorite(story);
   const starType = isFavorite ? "fas" : "far";
@@ -87,6 +88,7 @@ function getStarHTML(story, user) {
       </span>`;
 }
 
+// logic to generate list of stories to favorites storyList from favorites per user
 function putFavoritesListOnPage() {
   console.debug("putFavoritesListOnPage");
 
