@@ -23,3 +23,4 @@ def show_story():
     }
     madlibs = story.generate(answers)
     return render_template('story.html', madlib = madlibs)
+ 
