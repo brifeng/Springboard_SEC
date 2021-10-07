@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, flash
+from flask import Flask, render_template, request, redirect, flash, session
 from flask_debugtoolbar import DebugToolbarExtension
 
 from surveys import satisfaction_survey
@@ -17,10 +17,16 @@ def start_page():
     ins = satisfaction_survey.instructions
     return render_template('start.html', title=title, instructions=ins)
 
+@app.route('/new-survey', methods=['POST'])
+def new_route():
+    session['responses'] = []
+    return redirect('/questions/0')
+
 
 @app.route('/answer', methods=["POST"])
 def answer():
     responses.append(request.form['question'])
+    append_to_responses(request.form['question'])
     if len(responses) < len(satisfaction_survey.questions):
         return redirect(f'questions/{len(responses)}')
     return redirect('/thanks')
@@ -42,3 +48,8 @@ def question(num):
 def end():
     print(responses)
     return render_template('thanks.html')
+
+def append_to_responses(add):
+    resp = session['responses']
+    resp.append(add)
+    session['responses'] = resp
