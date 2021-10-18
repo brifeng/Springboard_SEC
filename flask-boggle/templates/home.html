@@ -1,0 +1,27 @@
+{% extends 'base.html' %}}
+{% block content %}
+<button id='start'>Start Game!</button>
+<h3>{{board[0]}}</h3>
+<h3>{{board[1]}}</h3>
+<h3>{{board[2]}}</h3>
+<h3>{{board[3]}}</h3>
+<h3>{{board[4]}}</h3>
+
+
+<form action="" id="guess-form">
+    <input type="text" placeholder="guess" id="guess-word">
+    <button id='submit-btn'>Go!</button>
+</form>
+
+<h3 id='score'>Score: 0</h3>
+
+<h3 id='timer'>Time Left: 60</h3>
+<br><br><br>
+<p>Times Played: 0</p>
+<p>High Score: 0</p>
+
+<script src="http://unpkg.com/jquery"></script>
+<script src="http://unpkg.com/axios/dist/axios.js"></script>
+<script src="static/app.js"></script>
+
+{% endblock %}
