@@ -13,10 +13,8 @@ $('#guess-form').on('submit', async function guess(evt) {
 $('#start').on('click', () => {
     startGame();
     setTimeout(() => {
-        alert('GAME OVER!');
-        $('#guess-form')[0].hidden = true;
-        $('#timer')[0].hidden = true;
-    }, 60000);
+        endGame();
+    }, timer*1000);
 })
 
 async function handleGuess(word) {
@@ -30,7 +28,6 @@ async function handleGuess(word) {
 
 function changeScore(add) {
     score = score + add;
-    console.log(score);
 
     let scoreHTML = $('#score');
     scoreHTML[0].innerHTML = `Score: ${score}`;
@@ -42,8 +39,8 @@ function changeTimer(time) {
 }
 
 async function startGame() {
-    console.log('game started');
-    // const res = await axios.get(`http://localhost:5000/start-game`);
+    $('#guess-form')[0].hidden = false;
+    $('#timer')[0].hidden = false;
 
     setInterval(function () {
         timer = timer - 1;
@@ -51,3 +48,18 @@ async function startGame() {
     }, 1000);
 }
 
+function endGame() {
+    alert('GAME OVER!');
+    $('#guess-form')[0].hidden = true;
+    $('#timer')[0].hidden = true;
+    updateTimesPlayed();
+    updateHighScore(score);
+}
+
+async function updateTimesPlayed() {
+    await axios.get(`http://localhost:5000/start-game`);
+}
+
+async function updateHighScore(highScore) {
+    await axios.get(`http://localhost:5000/update-high-score/${highScore}`);
+}

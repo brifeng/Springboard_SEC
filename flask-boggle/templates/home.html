@@ -8,17 +8,17 @@
 <h3>{{board[4]}}</h3>
 
 
-<form action="" id="guess-form">
+<form action="" id="guess-form" hidden='true'>
     <input type="text" placeholder="guess" id="guess-word">
     <button id='submit-btn'>Go!</button>
 </form>
 
 <h3 id='score'>Score: 0</h3>
 
-<h3 id='timer'>Time Left: 60</h3>
+<h3 id='timer' hidden='true'>Time Left: 60</h3>
 <br><br><br>
-<p>Times Played: 0</p>
-<p>High Score: 0</p>
+<p>Times Played: {{times}}</p>
+<p>High Score: {{high}}</p>
 
 <script src="http://unpkg.com/jquery"></script>
 <script src="http://unpkg.com/axios/dist/axios.js"></script>
