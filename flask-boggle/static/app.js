@@ -57,9 +57,13 @@ function endGame() {
 }
 
 async function updateTimesPlayed() {
-    await axios.get(`http://localhost:5000/start-game`);
+    const res = await axios.get(`http://localhost:5000/start-game`);
+    const times = res.data.timesPlayed;
+    $('#play-count')[0].innerHTML = `Times Played: ${times}`;
 }
 
 async function updateHighScore(highScore) {
-    await axios.get(`http://localhost:5000/update-high-score/${highScore}`);
+    const res = await axios.get(`http://localhost:5000/update-high-score/${highScore}`);
+    const high = res.data.highScore;
+    $('#high-score')[0].innerHTML = `High Score: ${high}`
 }

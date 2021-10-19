@@ -1,5 +1,5 @@
 from boggle import Boggle
-from flask import Flask, render_template, session
+from flask import Flask, render_template, session, jsonify
 from flask_debugtoolbar import DebugToolbarExtension
 
 boggle_game = Boggle()
@@ -30,11 +30,11 @@ def check_word(word):
 @app.route('/start-game')
 def start():
     session['times-played'] = session['times-played'] + 1
-    return ''
+    return jsonify({'timesPlayed': session['times-played']})
 
 
 @app.route('/update-high-score/<int:high>')
 def update_high_score(high):
     if session['high-score'] < high:
         session['high-score'] = high
-    return ''
+    return jsonify({'highScore': session['high-score']})
