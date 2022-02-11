@@ -1,24 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blogly</title>
+    <title>Tag Detail</title>
 </head>
-
 <body>
-    <h1>Users</h1>
+    <h1>{{tag.name}}</h1>
+
     <ul>
-        {% for user in users %}
-        <li><a href="/users/{{user.id}}">{{user.first_name}} {{user.last_name}}</a></li>
+        {% for post in tag.posts %}
+        <li><a href="/posts/{{post.id}}">{{post.title}}</a></li>
         {% endfor %}
     </ul>
 
-    <a href="/users/new">Add User</a>
-    <br>
-    <a href="/tags">View Tags</a>
+    <a href="/tags/{{tag.id}}/edit">Edit Tag</a>
+    <a href="/tags/{{tag.id}}/delete">Delete Tag</a>
 </body>
-
 </html>

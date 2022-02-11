@@ -1,6 +1,6 @@
 """Seed file to make sample data for db."""
 
-from models import db, User
+from models import db, User, Post, Tag, PostTag
 from app import app
 
 # Create all tables
@@ -21,16 +21,16 @@ db.session.add_all([user1, user2, user3, user4, user5, user6, user7, user8])
 
 db.session.commit()
 
-# # Make a bunch of employees
 
-# river = Employee(name="River Bottom", state="NY", dept_code="mktg")
-# summer = Employee(name="Summer Winter", state="OR", dept_code="mktg")
-# joaquin = Employee(name="Joaquin Phoenix", dept_code="acct")
-# octavia = Employee(name="Octavia Spencer", dept_code="r&d")
-# larry = Employee(name="Larry David", dept_code="r&d", state="NY")
-# kurt = Employee(name="Kurt Cobain", dept_code="it", state="WA")
-# rain = Employee(name="Rain Phoenix", dept_code="it")
+post1 = Post(title="Title", content = "Content", created_at = "now", user_id = 8)
 
-# db.session.add_all([river, summer, joaquin, octavia, larry, kurt, rain])
+db.session.add(post1)
+db.session.commit()
 
-# db.session.commit()
+tag1 = Tag(name='funny')
+db.session.add(tag1)
+db.session.commit()
+
+assoc = PostTag(post_id=1, tag_id=1)
+db.session.add(assoc)
+db.session.commit()

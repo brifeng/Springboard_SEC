@@ -21,7 +21,7 @@
 
     <h3>Posts</h3>
     <ul>
-        {% for p in user.post %}
+        {% for p in user.posts %}
         <li><a href="/posts/{{p.id}}">{{p.title}}</a></li>
         {% endfor %}
     </ul>

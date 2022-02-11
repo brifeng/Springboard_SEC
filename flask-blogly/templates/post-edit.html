@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Post</title>
 </head>
+
 <body>
     <h1>Edit Post</h1>
     <form action="/posts/{{post.id}}/edit" method="post">
@@ -14,8 +16,26 @@
         <br>
         <label for="content"></label>Content
         <input type="text" name="content" value="{{post.content}}">
+
+        <h4>
+
+            {% for tag in all_tags %}
+            <br>
+            <label for="tags"></label>{{tag.name}}
+
+                {% if tag.id in tag_ids %}
+                <input type="checkbox" name="tags" value="{{tag.id}}" checked>
+                {% else %}
+                <input type="checkbox" name="tags" value="{{tag.id}}">
+                {% endif %}
+            <br>
+            {% endfor %}
+        </h4>
+
         <button>Save</button>
     </form>
+
     <a href="/posts/{{post.id}}">Cancel</a>
 </body>
+
 </html>
