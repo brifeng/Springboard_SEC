@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Adoption Agency</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Pets</h1>
+        {% for pet in pets %}
+        <div class="card" style="width: 18rem;" href="/{{pet.id}}">
+
+            <img class="card-img-top" src="{{pet.photo_url}}" alt="Picture of {{pet.name}}" height="200">
+            <div class="card-body">
+                <h5 class="card-title">{{pet.name}}</h3>
+                <p>
+                    {{pet.name}} is {% if pet.is_available != True %}not{% endif %} available!
+                </p>
+                <a href="/{{pet.id}}">Go to page</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <a href="/add">Add a Pet</a>
+</body>
+
+</html>
